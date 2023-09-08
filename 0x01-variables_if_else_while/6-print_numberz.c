@@ -1,23 +1,18 @@
 #include <stdio.h>
+#include <unistd.h>
 /**
  * main - Entry Point.
+ * Description: print char below 10;
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	putchar(48);
-	putchar(49);
-	putchar(50);
-	putchar(51);
-	putchar(52);
-	putchar(53);
-	putchar(54);
-	putchar(55);
-	putchar(56);
-	putchar(57);
+	int a;
 
-
-	 putchar('\n');
-
-	return (0);
+	for (a = 0; a <= 10; a++)
+	{
+		putchar(a + '0');
+	}
+	putchar('\n');
+	return ('0');
 }
