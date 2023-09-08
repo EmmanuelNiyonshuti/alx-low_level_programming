@@ -6,17 +6,18 @@
 int main(void)
 {
 	putchar(48);
+	putchar(49);
+	putchar(50);
+	putchar(51);
+	putchar(52);
+	putchar(53);
+	putchar(54);
+	putchar(55);
+	putchar(56);
+	putchar(57);
 
-	putchar(48 + 1);
-	putchar(48 + 2);
-	putchar(48 + 3);
-	putchar(48 + 4);
-	putchar(48 + 5);
-	putchar(48 + 6);
-	putchar(48 + 7);
-	putchar(48 + 8);
-	putchar(48 + 9);
 
 	 putchar('\n');
+
 	return (0);
 }
