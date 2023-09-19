@@ -8,18 +8,13 @@
 */
 void puts2(char *str)
 {
-	int i = 0;
+	int i;
 
-	/* Loop through the string */
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-	/* Print the character at the current index */
-	_putchar(str[i]);
-
-	/* Move to the next character, which is two positions ahead */
-	i += 2;
+		if (i % 2 == 0)
+			_putchar(str[i]);
 	}
-
-	/* Print a newline character to move to the next line */
 	_putchar('\n');
+
 }
