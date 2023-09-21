@@ -2,18 +2,20 @@
 #include <stdio.h>
 
 /**
- * main - check the code for
+ * main - Test the leet function.
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	char s[] = "Expect the best. Prepare for the worst.\n"
-	"Capitalize on what comes.\n";
-	char *p;
+	char str[] = "Hello, Leet!";
+	char *result;
 
-	p = leet(s);
-	printf("%s", p);
-	printf("%s", s);
+	printf("Original string: %s\n", str);
+
+	result = leet(str);
+
+	printf("Leet-encoded string: %s\n", result);
+
 	return (0);
 }
