@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
- * main - Entry point
+ * main - Entry Point.
  *
- * Return: Always 0 (Success)
- */
+ * Return: Always 0 (Success).
+*/
 int main(void)
 {
 	int n;
@@ -12,7 +12,7 @@ int main(void)
 
 	a[2] = 1024;
 	p = &n;
-	/*
+	/**
 	* write your line of code here...
 	* Remember:
 	* - you are not allowed to use a
@@ -25,3 +25,4 @@ int main(void)
 	printf("a[2] = %d\n", a[2]);
 	return (0);
 }
+
