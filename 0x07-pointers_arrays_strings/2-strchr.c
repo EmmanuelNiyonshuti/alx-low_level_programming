@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _strchr - Locates the first occurrence of the character @c in the string @s.
  *
@@ -18,5 +19,5 @@ char *_strchr(char *s, char c)
 		}
 			s++;
 	}
-	return (0);
+	return (NULL);
 }
