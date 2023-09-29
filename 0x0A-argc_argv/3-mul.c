@@ -1,5 +1,18 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+/**
+ * multiply - Multiply two numbers
+ * @num1: First number
+ * @num2: Second number
+ *
+ * Return: Result of the multiplication
+ */
+int multiply(int num1, int num2)
+{
+	return (num1 * num2);
+}
 /**
  * main - Entry point of the program
  * @argc: Number of command-line arguments
@@ -19,9 +32,8 @@ int main(int argc, char *argv[])
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[2]);
 
-	result = num1 * num2;
+	result = multiply(num1, num2);
 
 	printf("%d\n", result);
-
 	return (0);
 }
