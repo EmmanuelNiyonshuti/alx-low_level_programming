@@ -2,7 +2,7 @@
 #define MAIN_H
 
 int _putchar(char c);
-int multiply(int num1, int num2);
+int _atoi(char *s);
 
 
 
