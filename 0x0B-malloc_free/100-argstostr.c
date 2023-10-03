@@ -11,9 +11,8 @@
 */
 char *argstostr(int ac, char **av)
 {
-	int i, j;
+	int i, j, av_len;
 	int total_len = 0;
-	int av_len = 0;
 	int current_p = 0;
 	char *result;
 
@@ -23,6 +22,8 @@ char *argstostr(int ac, char **av)
 	}
 	for (i = 0; i < ac; i++)
 	{
+		av_len = 0;
+
 		while (av[i][av_len] != '\0')
 		{
 			av_len++;
