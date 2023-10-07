@@ -10,41 +10,38 @@
  *         If the function fails, it returns NULL.
  *         If n is greater or equal to the length of s2, it uses the entire s2.
  *         If NULL is passed, treat it as an empty string.
- */
+*/
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int s1_len = 0;
-	unsigned int s2_len = 0;
-	unsigned int i, j;
-	char *concat;
+char *s;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
-	if (s1 == NULL)
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
 
-		s1 = " ";
+	if (n < len2)
+		s = malloc(sizeof(char) * (len1 + n + 1));
+	else
+		s = malloc(sizeof(char) * (len1 + len2 + 1));
 
-	if (s2 == NULL)
+	if (!s)
+		return (NULL);
 
-		s2 = " ";
+	while (i < len1)
+	{
+		s[i] = s1[i];
+		i++;
+	}
 
-	while (s1[s1_len] != '\0')
+	while (n < len2 && i < (len1 + n))
+		s[i++] = s2[j++];
 
-		s1_len++;
+	while (n >= len2 && i < (len1 + len2))
+		s[i++] = s2[j++];
 
-	while (s2[s2_len] != '\0')
+	s[i] = '\0';
 
-		s2_len++;
-
-
-	concat = malloc((s1_len + n + 1) * sizeof(char));
-
-	for (i = 0; i < s1_len; i++)
-
-		concat[i] = s1[i];
-
-	for (j = 0; j < n && j < s2_len; j++)
-
-		concat[i + j] = s2[j];
-
-	concat[i + j] = '\0';
-	return (concat);
-}
+	return (s);
+}	
