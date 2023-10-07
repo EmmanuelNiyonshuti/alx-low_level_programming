@@ -44,4 +44,4 @@ char *s;
 	s[i] = '\0';
 
 	return (s);
-}	
+}
