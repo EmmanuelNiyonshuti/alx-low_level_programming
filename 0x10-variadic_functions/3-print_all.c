@@ -1,93 +1,50 @@
-#include <stdio.h>
+#include "variadic_functions.h"
 #include <stdarg.h>
-
-void print_char(va_list argList);
-void print_int(va_list argList);
-void print_float(va_list argList);
-void print_str(va_list argList);
-void print_all(const char * const format, ...);
+#include <stdio.h>
 
 /**
- * print_char - Prints a character
- * @argList: va_list containing the variable arguments
- */
-void print_char(va_list argList)
-{
-	char ch = va_arg(argList, int);
-
-	printf("%c", ch);
-}
-
-/**
- * print_int - Prints an integer
- * @argList: va_list containing the variable arguments
- */
-void print_int(va_list argList)
-{
-	int num = va_arg(argList, int);
-
-	printf("%d", num);
-}
-
-/**
- * print_float - Prints a float
- * @argList: va_list containing the variable arguments
- */
-void print_float(va_list argList)
-{
-	double f = va_arg(argList, double);
-
-	printf("%f", f);
-}
-
-/**
- * print_str - Prints a string
- * @argList: va_list containing the variable arguments
- */
-void print_str(va_list argList)
-{
-	char *str = va_arg(argList, char *);
-
-	if (str == NULL)
-		printf("(nil)");
-	else
-		printf("%s", str);
-}
-
-/**
- * print_all - Prints anything based on a format string
- * @format: A string containing format specifiers for different types
- *          c: char, i: integer, f: float, s: char *
- *          Any other character is ignored
- * @...: Variable arguments corresponding to the format string
+ * print_all - prints anything
+ * @format: list of types of arguments passed to the function
  */
 void print_all(const char * const format, ...)
 {
-	va_list argList;
+	int i = 0;
+	char *str, *sep = "";
 
-	const char *currentFormat = format;
+	va_list list;
 
-	va_start(argList, format);
+	va_start(list, format);
 
-	while (*currentFormat != '\0')
+	if (format)
 	{
-		if (*currentFormat == 'c')
-			print_char(argList);
-		else if (*currentFormat == 'i')
-			print_int(argList);
-		else if (*currentFormat == 'f')
-			print_float(argList);
-		else if (*currentFormat == 's')
-			print_str(argList);
-
-		currentFormat++;
-
-	if (*currentFormat != '\0' && (*currentFormat == 'c' || *currentFormat == 'i' || *currentFormat == 'f' || *currentFormat == 's'))
-
-	printf(", ");
+		while (format[i])
+		{
+			switch (format[i])
+			{
+				case 'c':
+					printf("%s%c", sep, va_arg(list, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(list, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(list, double));
+					break;
+				case 's':
+					str = va_arg(list, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+					break;
+				default:
+					i++;
+					continue;
+			}
+			sep = ", ";
+			i++;
+		}
 	}
 
 	printf("\n");
-
-	va_end(argList);
+	va_end(list);
 }
