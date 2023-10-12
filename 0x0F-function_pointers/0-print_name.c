@@ -4,9 +4,13 @@
  * @name: name of the person.
  *@f: pointer to a function.
  *
- * Return: Nothing.
+ * Return: void.
  */
 void print_name(char *name, void (*f)(char *))
 {
-	(*f)(name);
+	if (name != NULL && f != NULL)
+	{
+		f(name);
+	}
+
 }
