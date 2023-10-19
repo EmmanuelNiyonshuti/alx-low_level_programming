@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 /**
  * free_list - frees a list_t list.
  *@head: pointer to the first node.
@@ -7,14 +8,14 @@
  */
 void free_list(list_t *head)
 {
-	list-t *current = head;
+	list_t *current = head;
 	list_t *next;
 
 	while (current != NULL)
 	{
 		next = current->next;
 
-		free(curent->str);
+		free(current->str);
 
 		free(current);
 
