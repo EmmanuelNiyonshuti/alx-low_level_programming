@@ -1,10 +1,12 @@
-#include <stdio.h>
-
+#include "lists.h"
 /**
- * pre_main - Function to be executed before main.
- * It prints the required message.
+ * the_Hare_and_the_Tortoise - prints a string before main is executed.
+ *
+ * Return: Void.
  */
-void __attribute__((constructor)) pre_main(void)
+void the_Hare_and_the_Tortoise(void) __attribute__((constructor));
+
+void the_Hare_and_the_Tortoise(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
