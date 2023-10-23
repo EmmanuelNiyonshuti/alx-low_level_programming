@@ -4,8 +4,8 @@
  * @head: pointer to the first node.
  * @index: index of the node, starting at 0.
  *
- * Return: The nth node of a listint_t linked list.
- * 		NULL if the node does not exist.
+ * Return: The nth node of a listint_t linked list,
+ *	NULL if the node does not exist.
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
