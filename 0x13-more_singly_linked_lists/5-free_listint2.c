@@ -4,7 +4,7 @@
  * @head: Pointer to a pointer to a head node.
  *
  * Return: Nothing.
- */
+*/
 void free_listint2(listint_t **head)
 {
 	listint_t *temp = *head;
