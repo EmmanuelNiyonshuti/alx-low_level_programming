@@ -18,14 +18,10 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		fd = open(filename, O_WRONLY | O_TRUNC | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
+		fd = open(filename, O_WRONLY | O_TRUNC | O_CREAT | S_IRUSR | S_IWUSR);
 		if (fd == -1)
 		{
-			fd = open(filename, O_WRONLY);
-			if (fd == -1)
-			{
 			return (-1);
-			}
 		}
 
 	bytesWrite = write(fd, text_content, sizeof(char) + 1);
