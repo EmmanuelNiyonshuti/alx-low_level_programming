@@ -4,6 +4,11 @@
 
 /**
  * main - check the code
+ * @ac: argument count.
+ * @av: argument vector.
+ *
+ * Description: Check the code. Print the characters read by read_textfile
+ *      function for two different file sizes.
  *
  * Return: Always 0.
  */
