@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * create_file - Creates a file.
  *@filename: name of the file to create.
@@ -24,7 +25,7 @@ int create_file(const char *filename, char *text_content)
 			return (-1);
 		}
 
-	bytesToWrite = write(fd, text_content, sizeof(char) + 1);
+	bytesToWrite = write(fd, text_content, strlen(text_content));
 		if (bytesToWrite == -1)
 		{
 			close(fd);
