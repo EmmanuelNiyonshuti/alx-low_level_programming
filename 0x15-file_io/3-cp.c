@@ -43,12 +43,16 @@ int main(int argc, char *argv[])
 		if (bytesWritten == -1)
 		{
 			dprintf(2, "error: Can't write to %s\n", file_to);
+			close(src_fd);
+			close(dest_fd);
 			exit(99);
 		}
 	}
 	if (bytesRead == -1)
 	{
 		dprintf(2, "Error: Can't read from %s\n", file_from);
+		close(src_fd);
+		close(dest_fd);
 		exit(98);
 	}
 	close_fd1 = close(src_fd);
