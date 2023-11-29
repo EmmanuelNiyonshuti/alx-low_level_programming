@@ -43,6 +43,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		TotalBytesWritten += bytesRead;
 		bytesRead = read(fd, buffer, letters);
 	}
+	buffer[bytesRead] = '\0';
 	if (bytesRead == -1)
 	{
 		free(buffer);
