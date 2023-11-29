@@ -1,6 +1,4 @@
 #include "main.h"
-
-#define BUFFER_SIZE 1024
 /**
  * main: Entry Point.
  * @argv: Argument vector.
