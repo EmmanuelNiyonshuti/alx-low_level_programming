@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	}
 	file_from = argv[1];
 	file_to = argv[2];
+
 	src_fd = open(file_from, O_RDONLY);
 	if (src_fd == -1)
 	{
