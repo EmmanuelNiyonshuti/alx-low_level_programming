@@ -1,0 +1,1 @@
+This project in C, focusing on creating libdynamic.so and liball.so, enhances your C programming skills. By adhering to strict style guidelines and automating library creation, it provides hands-on experience, consolidating my understanding of C, compilation, and library management.
