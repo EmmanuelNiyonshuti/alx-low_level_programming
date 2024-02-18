@@ -18,11 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	/*Getting the index in the hash tables array*/
 	index = key_index((const unsigned char *)key, ht->size);
-	/*Assigning the value stored at the calculated index*/
-	/*in the hash tables' array to the pointer variable 'current'*/
 	current = ht->array[index];
-	/*Iterating through a linked list*/
-	/*searching for a node with a matching key*/
 	while (current != NULL)
 	{
 		if (strcmp(current->key, key) == 0)
@@ -33,8 +29,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		current = current->next;
 	}
-	/*Creating a new_node to allocate a memory*/
-	/*for storing a new key-value pair in the hash table*/
 	new_node = malloc(sizeof(hash_node_t));
 	if (!new_node)
 		return (0);
@@ -51,7 +45,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_node);
 		return (0);
 	}
-	/*Insert new node at the beginning of the linked list*/
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 
