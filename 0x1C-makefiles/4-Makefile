@@ -1,0 +1,42 @@
+#name of the compiler
+CC = gcc
+
+#the source files
+SRC = main.c school.c
+
+# The obj files
+OBJ = $(SRC:.c=.o)
+
+#The name of the execuatble
+NAME = school
+
+#The program to delete files
+RM = rm -f
+
+#Compiler flags ones of my favorites
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+#source file into obj files
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+#obj files into executable
+$(NAME): $(OBJ)
+	$(CC) $^ $(CFLAGS) -o $@
+
+#rules
+
+all: $(NAME)
+
+clean:
+	$(RM) $(NAME)
+oclean:
+	$(OBJ) $(NAME)
+fclean: clean oclean
+
+re:
+	$(RM) $(OBJ)
+
+.PHONY: clean oclean fclean re
+
+
