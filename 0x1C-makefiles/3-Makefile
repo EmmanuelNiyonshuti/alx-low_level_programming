@@ -1,0 +1,41 @@
+# the compiler to be used
+
+CC = gcc
+
+#The source files
+
+SRC = main.c school.c
+
+#The object files
+
+OBJ = $(SRC:.c=.o)
+
+#The name of the executable
+
+NAME = school
+
+#The program to delete files
+
+RM = $(SRC) $(OBJ)
+
+all: $(NAME)
+
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+$(NAME): $(OBJ)
+	$(CC) -o $@ $^
+
+clean:
+	$(SRC) $(NAME)
+
+oclean:
+	$(OBJ)
+
+fclean:
+	$(RM) $(NAME)
+
+
+re:
+	touch $(SRC)
+.PHONY: all clean oclean fclean re
