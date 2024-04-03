@@ -14,4 +14,4 @@ SRC = main.c school.c
 
 #Rule to build the school executable
 school: $(SRC)
-	$(CC) $(SRC) -o school
+	$(CC) $^ -o $@
