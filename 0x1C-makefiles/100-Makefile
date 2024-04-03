@@ -1,0 +1,43 @@
+# Compiler
+CC = gcc
+
+# Source files
+SRC = $(wildcard *.c)
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Name of the executable
+NAME = school
+
+# Compiler flags
+CFLAGS := -Wall -Werror -Wextra -pedantic
+
+# Check if m.h header file exists
+ifeq ($(wildcard m.h),)
+    $(error "m.h header file is missing")
+endif
+
+# Default rule
+all: $(NAME)
+
+# Rule to build executable
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+# Clean rule
+clean:
+	-$(RM) *~ $(NAME)
+
+# OcLean rule
+oclean:
+	-$(RM) $(OBJ)
+
+# Fclean rule
+fclean: clean oclean
+	-$(RM) $(NAME)
+
+# Force recompilation rule
+re: fclean all
+
+.PHONY: all clean oclean fclean re
