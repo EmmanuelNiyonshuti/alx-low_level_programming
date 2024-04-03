@@ -1,23 +1,25 @@
-#name of the compiler
-CC := gcc
+#The compiler to be used
 
-# Source files
-SRC := main.c school.c
+CC = gcc
 
-#obj files
-OBJ := $(SRC:.C=.o)
+#The source file
 
-#name of the executable
+SRC = main.c school.c
+
+#The object file(depends on source file
+
+OBJ = $(SRC:.c=.o)
+
+# name of the executable
+
 NAME = school
 
-#school execuatble
 all: $(NAME)
 
-#rule to build school executable
+#source file to obj files
+%.o: %.c
+	$(CC)  -c -o $@ $<
+
+#obj file to executable
 $(NAME): $(OBJ)
 	$(CC) $^ -o $@
-
-#Rule to compile each source file into an obj file
-%.o: %.c
-	$(CC) -c $< -o $@
-
