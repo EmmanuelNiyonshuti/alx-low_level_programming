@@ -25,15 +25,17 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
 #Rules
-
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJ) $(NAME)
+	$(RM) *~ $(NAME)
+
 oclean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(NAME)
+
 fclean: clean oclean
 
-re: fclean all
 
-.PHONY: clean oclean fclean re
+re:
+	$(RM) $(OBJ)
+.PHONY: all clean oclean fclean re
