@@ -1,11 +1,14 @@
-# all rule to build executable
-# CC variable for the compiler to be used
-# SRC variable for the.c files
+#Default target: school executable
 
 all: school
 
+.PHONY: school
+#compiler to be used
 CC = gcc
-SRC = *.c
 
-school: ${SRC}
-	${CC} ${SRC} -o school
+#source files
+SRC = main.c school.c
+
+#Rule to build the school executable
+school: $(SRC)
+	$(CC) $^ -o $@
