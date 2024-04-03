@@ -1,0 +1,11 @@
+# all rule to build executable
+# CC variable for the compiler to be used
+# SRC variable for the.c files
+
+all: school
+
+CC = gcc
+SRC = ${wildcard *.c}
+
+school: ${SRC}
+	${CC} ${SRC} -o school
