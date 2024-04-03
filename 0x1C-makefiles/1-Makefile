@@ -2,7 +2,10 @@
 
 all: school
 
+#marking school as phony target
+# to be considered outa date everytime i run make
 .PHONY: school
+
 #compiler to be used
 CC = gcc
 
@@ -11,4 +14,4 @@ SRC = main.c school.c
 
 #Rule to build the school executable
 school: $(SRC)
-	$(CC) $^ -o $@
+	$(CC) $(SRC) -o school
