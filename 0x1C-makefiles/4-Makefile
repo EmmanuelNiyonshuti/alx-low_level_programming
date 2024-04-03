@@ -18,25 +18,22 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 
 #source file into obj files
 %.o: %.c
-	$(CC) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-#obj files into executable
+#link objs files into executable
 $(NAME): $(OBJ)
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CC) $(CFLAGS) $^ -o $@
 
-#rules
+#Rules
 
 all: $(NAME)
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJ) $(NAME)
 oclean:
-	$(OBJ) $(NAME)
+	$(RM) $(OBJ)
 fclean: clean oclean
 
-re:
-	$(RM) $(OBJ)
+re: fclean all
 
 .PHONY: clean oclean fclean re
-
-
