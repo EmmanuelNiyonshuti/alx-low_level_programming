@@ -3,8 +3,8 @@
 /**
 *print_arr - Helper function to print current array I am searching a value in.
 *@array: Pointer to the first element in an array.
-*@l: first index in an array.
-*@r: last index in an array.
+*@l: first index in an array segment.
+*@r: last index in an array segment.
 *
 *Return: Nothing.
 */
@@ -17,6 +17,9 @@ void print_arr(int *array, int l, int r)
 	for (i = l; i <= r; i++)
 	{
 		printf("%d", array[i]);
+
+		if (i < r)
+			printf(", ");
 	}
 	printf("\n");
 }
@@ -40,7 +43,6 @@ int binary_search(int *array, size_t size, int value)
 
 	if (!array)
 		return (-1);
-
 	while (l <= r)
 	{
 		print_arr(array, l, r);
